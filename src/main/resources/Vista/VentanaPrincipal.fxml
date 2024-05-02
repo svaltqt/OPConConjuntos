@@ -1,14 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
-
+<AnchorPane prefHeight="708.0" prefWidth="967.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.svaltqt.Controlador.VentanaPrincipalController">
+   <children>
+      <Label fx:id="txtNombre" layoutX="62.0" layoutY="120.0" text="Nombre completo">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtCedula" layoutX="62.0" layoutY="89.0" text="Cédula">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="23.0" text="Docentes">
+         <font>
+            <Font name="Arial" size="37.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtSexo" layoutX="62.0" layoutY="151.0" text="Sexo">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtFacultad" layoutX="443.0" layoutY="89.0" text="Facultad">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtTitulo" layoutX="443.0" layoutY="120.0" text="Título">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtAsignaturas" layoutX="443.0" layoutY="151.0" text="# Asignaturas">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtHoras" layoutX="443.0" layoutY="182.0" text="# Horas Dictadas">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtFecha" layoutX="62.0" layoutY="182.0" text="Fecha de Nacimiento">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="campoCedula" layoutX="220.0" layoutY="89.0" />
+      <TextField fx:id="campoNombre" layoutX="220.0" layoutY="120.0" />
+      <ChoiceBox fx:id="choiceSexo" layoutX="220.0" layoutY="151.0" prefHeight="25.0" prefWidth="149.0" />
+      <ChoiceBox fx:id="choiceTitulo" layoutX="573.0" layoutY="120.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="choiceFacultad" layoutX="573.0" layoutY="89.0" prefWidth="150.0" />
+      <TextField fx:id="campoFecha" layoutX="220.0" layoutY="182.0" />
+      <TextField fx:id="campoHoras" layoutX="573.0" layoutY="182.0" />
+      <TextField fx:id="campoAsignaturas" layoutX="573.0" layoutY="151.0" />
+      <Button fx:id="ButtonAgregar" layoutX="110.0" layoutY="282.0" mnemonicParsing="false" onAction="#ButtonAgregarOnAction" prefHeight="30.0" prefWidth="75.0" text="Agregar">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Line endX="-82.0" endY="60.0" layoutX="279.0" layoutY="292.0" startX="-82.0" startY="-7.0" />
+      <Label fx:id="txtPorDocente" layoutX="211.0" layoutY="280.0" text="Por docente">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Line endX="-82.0" endY="60.0" layoutX="496.0" layoutY="292.0" startX="-82.0" startY="-7.0" />
+      <Label fx:id="txtPorFacultad" layoutX="425.0" layoutY="280.0" text="Por facultad">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonBuscarDocente" layoutX="334.0" layoutY="310.0" mnemonicParsing="false" onAction="#buttonBuscarDocenteOnAction" text="Buscar">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="choicePorDocente" layoutX="211.0" layoutY="310.0" prefHeight="30.0" prefWidth="111.0" />
+      <Button fx:id="buttonBuscarFacultad" layoutX="548.0" layoutY="310.0" mnemonicParsing="false" onAction="#buttonBuscarFacultadOnAction" text="Buscar">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="choicePorFacultad" layoutX="425.0" layoutY="310.0" prefHeight="30.0" prefWidth="111.0" />
+      <Line endX="-82.0" endY="60.0" layoutX="703.0" layoutY="292.0" startX="-82.0" startY="-7.0" />
+      <Label fx:id="txtPorContrato" layoutX="630.0" layoutY="280.0" text="Por contrato">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonBuscarContrato" layoutX="753.0" layoutY="310.0" mnemonicParsing="false" onAction="#buttonBuscarContratoOnAction" text="Buscar">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="choicePorContrato" layoutX="630.0" layoutY="310.0" prefHeight="30.0" prefWidth="111.0" />
+      <Label fx:id="txtTotalResultado" layoutX="740.0" layoutY="96.0" text="TOTAL">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <TableView fx:id="listaPrincipal" layoutX="62.0" layoutY="387.0" prefHeight="299.0" prefWidth="840.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Label fx:id="TextmensajeError" layoutX="292.0" layoutY="356.0" text="Errores">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtTipoContrato" layoutX="62.0" layoutY="212.0" text="Tipo de Contrato">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="choiceTipoContrato" layoutX="220.0" layoutY="212.0" prefWidth="150.0" />
+      <Line endX="-441.0" endY="32.0" layoutX="507.0" layoutY="232.0" startX="390.0" startY="32.0" />
+      <Button fx:id="ButtonImportar" layoutX="110.0" layoutY="325.0" mnemonicParsing="false" onAction="#ButtonImportarOnAction" prefHeight="30.0" prefWidth="75.0" text="Importar">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>

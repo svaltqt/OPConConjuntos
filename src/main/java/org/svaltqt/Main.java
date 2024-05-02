@@ -1,19 +1,40 @@
 package org.svaltqt;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import java.io.IOException;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
-public class Main {
-    public static void main(String[] args) {
-        // Press Alt+Intro with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Mayús+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+public class Main extends Application {
+    private static Stage stg;
 
-            // Press Mayús+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+    public Stage getMainStage() {
+        return stg;
     }
+
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+        stg = primaryStage;
+        primaryStage.setResizable(false);
+        Parent root = FXMLLoader.load(getClass().getResource("/Vista/VentanaPrincipal.fxml"));
+        primaryStage.setTitle("Docentes");
+        primaryStage.setScene((new Scene(root, 967, 708)));
+        primaryStage.show();
+    }
+
+    public void changeScene(String fxml, Stage stage) throws IOException {
+
+        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+        stg.setWidth(600);
+        stg.setHeight(500);
+        stg.getScene().setRoot(pane);
+
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+
 }
