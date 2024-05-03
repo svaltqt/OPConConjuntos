@@ -11,11 +11,21 @@ Implementacion de Conjuntos en Java orientado a Objetos
 
 ## Instalación
 
-Pasos para instalar el proyecto.
+1. Git clone:
+    ```
+         git clone [https://github.com/svaltqt/OPConConjuntos.git](https://github.com/svaltqt/OPConConjuntos.git)
+    ```
+2. Instalacion de JavaFX (Dentro del IDE)
+    ``` 
+         Se realiza desde el Maven instalando dependencias desde el ícono 'M'
+    ```
 
 ## Uso
 
-Instrucciones sobre cómo utilizar el proyecto.
+Abrir la consola y usar el comando
+ ``` 
+     mvn javafx:run
+ ```
 
 ## Contribución
 
