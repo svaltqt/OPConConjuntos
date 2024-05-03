@@ -31,8 +31,8 @@ Abrir la consola y usar el comando
 
 ## Recursos
 
-Guia youtube https://www.youtube.com/watch?v=Gclb5YHIi0o Sobre Conjuntos
-web: https://www.digitalocean.com/community/tutorials/java-set
+- Guia youtube https://www.youtube.com/watch?v=Gclb5YHIi0o Sobre Conjuntos
+- web: https://www.digitalocean.com/community/tutorials/java-set
 
 
 ## Licencia
