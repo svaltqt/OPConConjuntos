@@ -10,12 +10,14 @@ Implementacion de Conjuntos en Java orientado a Objetos
 - [Licencia](#licencia)
 
 ## Instalación
+1. Abrir desde el IntelliJ IDEA utilizando la opcion 'Get from Version Control' 
+   
 
-1. Git clone:
+3. En el Apartado URL se debe dejar la dirección del Git clone:
     ```
          git clone https://github.com/svaltqt/OPConConjuntos.git
     ```
-2. Instalacion de JavaFX (Dentro del IDE)
+4. Instalacion de JavaFX (Dentro del IDE)
     ``` 
          Se realiza desde el Maven instalando dependencias desde el ícono 'M'
     ```
