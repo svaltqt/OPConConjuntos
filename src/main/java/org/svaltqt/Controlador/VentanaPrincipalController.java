@@ -180,109 +180,10 @@ public class VentanaPrincipalController implements Initializable{
         }
         return false;
     }
-
-    private void listarContarProfesoresTiempoCompleto() {
-        Set<Profesor> profesoresTiempoCompleto = new HashSet<>(ListaProfeCompleto);
-        // Eliminar los profesores que tienen otros contratos
-        profesoresTiempoCompleto.removeAll(ListaProfeCatedra);
-        profesoresTiempoCompleto.removeAll(ListaProfeOcasional);
-
-        // Mostrar solo los profesores que tienen únicamente el contrato de tiempo completo
-        ObservableList<Profesor> tiempoCompletoObservable = FXCollections.observableArrayList(profesoresTiempoCompleto);
-        listaPrincipal.setItems(tiempoCompletoObservable);
-        txtTotalResultado.setText("Profesores: "+ profesoresTiempoCompleto.size());
-    }
-
-    private void listarContarProfesoresCatedra() {
-        Set<Profesor> profesoresCatedra = new HashSet<>(ListaProfeCatedra);
-        // Eliminar los profesores que tienen otros contratos
-        profesoresCatedra.removeAll(ListaProfeOcasional);
-        profesoresCatedra.removeAll(ListaProfeCompleto);
-
-        // Mostrar solo los profesores que tienen únicamente el contrato de cátedra
-        ObservableList<Profesor> catedraObservable = FXCollections.observableArrayList(profesoresCatedra);
-        listaPrincipal.setItems(catedraObservable);
-        txtTotalResultado.setText("Profesores: "+ profesoresCatedra.size());
-    }
-
-    private void listarContarProfesoresOcasionales() {
-        Set<Profesor> profesoresOcasionales = new HashSet<>(ListaProfeOcasional);
-        // Eliminar los profesores que tienen otros contratos
-        profesoresOcasionales.removeAll(ListaProfeCatedra);
-        profesoresOcasionales.removeAll(ListaProfeCompleto);
-
-        // Mostrar solo los profesores que tienen únicamente el contrato ocasional
-        ObservableList<Profesor> ocasionalesObservable = FXCollections.observableArrayList(profesoresOcasionales);
-        listaPrincipal.setItems(ocasionalesObservable);
-        txtTotalResultado.setText("Profesores: " + profesoresOcasionales.size());
-    }
-    private void listarContarProfesoresTotales() {
-        // Crear un conjunto para almacenar profesores únicos
-        Set<Profesor> profesoresUnicos = new HashSet<>();
-
-        // Agregar todos los profesores de las listas, pero sin repetidos
-        profesoresUnicos.addAll(ListaProfeCompleto);
-        profesoresUnicos.addAll(ListaProfeCatedra);
-        profesoresUnicos.addAll(ListaProfeOcasional);
-
-        // Convertir el conjunto a una lista observable para mostrar en la interfaz
-        ObservableList<Profesor> profesoresTotalesObservable = FXCollections.observableArrayList(profesoresUnicos);
-        listaPrincipal.setItems(profesoresTotalesObservable);
-
-        txtTotalResultado.setText("Profesores: " + profesoresUnicos.size());
-    }
-    private void listarContarProfesoresTCyCatedra() {
-        Set<Profesor> profesoresTCyCatedra = new HashSet<>();
-
-        for (Profesor profesor : ListaProfeCompleto) {
-            if (ListaProfeCatedra.contains(profesor) &&
-                !ListaProfeOcasional.contains(profesor)) {
-                profesoresTCyCatedra.add(profesor);
-            }
-        }
-        ObservableList<Profesor> tcyCatedraObservable = FXCollections.observableArrayList(profesoresTCyCatedra);
-        listaPrincipal.setItems(tcyCatedraObservable);
-        txtTotalResultado.setText("Profesores: " + profesoresTCyCatedra.size());
-    }
-
-    private void listarContarProfesoresOcasionalCatedra() {
-        Set<Profesor> profesoresOcasionalCatedra = new HashSet<>();
-
-        for (Profesor profesor : ListaProfeOcasional) {
-            if (ListaProfeCatedra.contains(profesor) &&
-                !ListaProfeCompleto.contains(profesor)) {
-                profesoresOcasionalCatedra.add(profesor);
-            }
-        }
-        ObservableList<Profesor> ocasionalCatedraObservable = FXCollections.observableArrayList(profesoresOcasionalCatedra);
-        listaPrincipal.setItems(ocasionalCatedraObservable);
-        txtTotalResultado.setText("Profesores: " +  profesoresOcasionalCatedra.size());
-    }
-
-
-
-    private void listarContarProfesoresCombinado() {
-        Set<Profesor> profesoresCombinados = new HashSet<>();
-
-        for (Profesor profesor : ListaProfeCompleto) {
-            if (ListaProfeCatedra.contains(profesor) &&
-                ListaProfeOcasional.contains(profesor)) {
-                profesoresCombinados.add(profesor);
-            }
-        }
-        ObservableList<Profesor> combinadoObservable = FXCollections.observableArrayList(profesoresCombinados);
-        listaPrincipal.setItems(combinadoObservable);
-        txtTotalResultado.setText("Profesores: " + profesoresCombinados.size());
-    }
-
-
     @FXML
     public void ButtonAgregarOnAction(ActionEvent actionEvent) {
         Profesor profesor = new Profesor();
         TextmensajeError.setText("");
-
-
-
         // Cédula Únicas
         /*String cedula = campoCedula.getText();
         if (!ExpresionesRegulares.cedulaPattern.matcher(cedula).matches() || cedulaYaExiste(cedula)) {
@@ -378,6 +279,87 @@ public class VentanaPrincipalController implements Initializable{
 
     }
 
+    // únicos
+    private void listarContarProfesoresTiempoCompleto() {
+        Set<Profesor> profesoresTiempoCompleto = new HashSet<>(ListaProfeCompleto);
+
+        profesoresTiempoCompleto.removeAll(ListaProfeCatedra);
+        profesoresTiempoCompleto.removeAll(ListaProfeOcasional);
+
+        ObservableList<Profesor> tiempoCompletoObservable = FXCollections.observableArrayList(profesoresTiempoCompleto);
+        listaPrincipal.setItems(tiempoCompletoObservable);
+        txtTotalResultado.setText("Profesores: "+ profesoresTiempoCompleto.size());
+    }
+    private void listarContarProfesoresCatedra() {
+        Set<Profesor> profesoresCatedra = new HashSet<>(ListaProfeCatedra);
+
+        profesoresCatedra.removeAll(ListaProfeOcasional);
+        profesoresCatedra.removeAll(ListaProfeCompleto);
+
+        ObservableList<Profesor> catedraObservable = FXCollections.observableArrayList(profesoresCatedra);
+        listaPrincipal.setItems(catedraObservable);
+        txtTotalResultado.setText("Profesores: "+ profesoresCatedra.size());
+    }
+    private void listarContarProfesoresOcasionales() {
+        Set<Profesor> profesoresOcasionales = new HashSet<>(ListaProfeOcasional);
+        profesoresOcasionales.removeAll(ListaProfeCatedra);
+        profesoresOcasionales.removeAll(ListaProfeCompleto);
+
+        ObservableList<Profesor> ocasionalesObservable = FXCollections.observableArrayList(profesoresOcasionales);
+        listaPrincipal.setItems(ocasionalesObservable);
+        txtTotalResultado.setText("Profesores: " + profesoresOcasionales.size());
+    }
+    private void listarContarProfesoresTotales() {
+
+        Set<Profesor> profesoresUnicos = new HashSet<>();
+        profesoresUnicos.addAll(ListaProfeCompleto);
+        profesoresUnicos.addAll(ListaProfeCatedra);
+        profesoresUnicos.addAll(ListaProfeOcasional);
+
+        ObservableList<Profesor> profesoresTotalesObservable = FXCollections.observableArrayList(profesoresUnicos);
+        listaPrincipal.setItems(profesoresTotalesObservable);
+        txtTotalResultado.setText("Profesores: " + profesoresUnicos.size());
+    }
+    // Combinados
+    private void listarContarProfesoresTCyCatedra() {
+        Set<Profesor> profesoresTCyCatedra = new HashSet<>();
+
+        for (Profesor profesor : ListaProfeCompleto) {
+            if (ListaProfeCatedra.contains(profesor) &&
+                !ListaProfeOcasional.contains(profesor)) {
+                profesoresTCyCatedra.add(profesor);
+            }
+        }
+        ObservableList<Profesor> tcyCatedraObservable = FXCollections.observableArrayList(profesoresTCyCatedra);
+        listaPrincipal.setItems(tcyCatedraObservable);
+        txtTotalResultado.setText("Profesores: " + profesoresTCyCatedra.size());
+    }
+    private void listarContarProfesoresOcasionalCatedra() {
+        Set<Profesor> profesoresOcasionalCatedra = new HashSet<>();
+
+        for (Profesor profesor : ListaProfeOcasional) {
+            if (ListaProfeCatedra.contains(profesor) &&
+                !ListaProfeCompleto.contains(profesor)) {
+                profesoresOcasionalCatedra.add(profesor);
+            }
+        }
+        ObservableList<Profesor> ocasionalCatedraObservable = FXCollections.observableArrayList(profesoresOcasionalCatedra);
+        listaPrincipal.setItems(ocasionalCatedraObservable);
+        txtTotalResultado.setText("Profesores: " +  profesoresOcasionalCatedra.size());
+    }
+    private void listarContarProfesoresCombinado() {
+        Set<Profesor> profesoresCombinados = new HashSet<>();
+
+        for (Profesor profesor : ListaProfeCompleto) {
+            if (ListaProfeCatedra.contains(profesor) &&
+                ListaProfeOcasional.contains(profesor)) {
+                profesoresCombinados.add(profesor);
+            }
+        }
+        ObservableList<Profesor> combinadoObservable = FXCollections.observableArrayList(profesoresCombinados);
+        listaPrincipal.setItems(combinadoObservable);
+        txtTotalResultado.setText("Profesores: " + profesoresCombinados.size());
+    }
     @FXML
     public void buttonBuscarDocenteOnAction(ActionEvent actionEvent) {
         // Limpiar Datos de la Tabla
@@ -412,26 +394,18 @@ public class VentanaPrincipalController implements Initializable{
             }
         }
     }
-
-
     private void listarContarIngenieria() {
         Set<Profesor> profesoresIngenieria = new HashSet<>();
-        for (Profesor profesor : ListaProfeCompleto) {
+
+        Set<Profesor> profesoresUnicos = new HashSet<>();
+        profesoresUnicos.addAll(ListaProfeCompleto);
+        profesoresUnicos.addAll(ListaProfeCatedra);
+        profesoresUnicos.addAll(ListaProfeOcasional);
+        for (Profesor profesor : profesoresUnicos) {
             if (profesor.getFacultad().equals("Ingenieria")) {
                 profesoresIngenieria.add(profesor);
             }
         }
-        for (Profesor profesor : ListaProfeCatedra) {
-            if (profesor.getFacultad().equals("Ingenieria")) {
-                profesoresIngenieria.add(profesor);
-            }
-        }
-        for (Profesor profesor : ListaProfeOcasional) {
-            if (profesor.getFacultad().equals("Ingenieria")) {
-                profesoresIngenieria.add(profesor);
-            }
-        }
-        ProfesoresUnicos.addAll(profesoresIngenieria);
         ObservableList<Profesor> ingenieriaObservable = FXCollections.observableArrayList(profesoresIngenieria);
         listaPrincipal.setItems(ingenieriaObservable);
         txtTotalResultado.setText("Profesores: " + profesoresIngenieria.size());
@@ -526,7 +500,7 @@ public class VentanaPrincipalController implements Initializable{
         listaPrincipal.getItems().clear();
         ProfesoresUnicos.clear();
 
-        String opcionSeleccionada = choicePorDocente.getSelectionModel().getSelectedItem();
+        String opcionSeleccionada = choicePorFacultad.getSelectionModel().getSelectedItem();
         if (opcionSeleccionada != null) {
             switch (opcionSeleccionada) {
                 case "Ingenieria":
@@ -569,7 +543,6 @@ public class VentanaPrincipalController implements Initializable{
         listaPrincipal.setItems(hombresObservable);
         txtTotalResultado.setText("Profesores: " + profesoresHombres.size());
     }
-
     private void listarContarMujeres() {
         Set<Profesor> profesoresMujeres = new HashSet<>();
         for (Profesor profesor : ListaProfeCompleto) {
@@ -591,14 +564,13 @@ public class VentanaPrincipalController implements Initializable{
         listaPrincipal.setItems(mujeresObservable);
         txtTotalResultado.setText("Profesores: " + profesoresMujeres.size());
     }
-
     @FXML
     public void buttonBuscarContratoOnAction(ActionEvent actionEvent) {
         // Limpiar Datos de la Tabla
         listaPrincipal.getItems().clear();
         ProfesoresUnicos.clear();
 
-        String opcionSeleccionada = choicePorDocente.getSelectionModel().getSelectedItem();
+        String opcionSeleccionada = choicePorContrato.getSelectionModel().getSelectedItem();
         if (opcionSeleccionada != null) {
             switch (opcionSeleccionada) {
                 case "Total Hombres":
@@ -610,7 +582,6 @@ public class VentanaPrincipalController implements Initializable{
             }
         }
     }
-
     @FXML
     public void ButtonImportarOnAction(ActionEvent actionEvent) {
 
@@ -626,10 +597,8 @@ public class VentanaPrincipalController implements Initializable{
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 String line;
                 while ((line = br.readLine()) != null) {
-
                     String[] campos = line.split(",");
                     Profesor profesor = new Profesor();
-
 
                     if (!ExpresionesRegulares.cedulaPattern.matcher(campos[0]).matches()) {
                         MensajeError(TextmensajeError, "Cédula Error");
