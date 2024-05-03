@@ -1,6 +1,6 @@
 # Título del Proyecto
 
-Breve descripción del proyecto.
+Implementacion de Conjuntos en Java orientado a Objetos
 
 ## Tabla de Contenidos
 
