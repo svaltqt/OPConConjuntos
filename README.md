@@ -31,7 +31,7 @@ Abrir la consola y usar el comando
 
 ## Recursos
 
-- Guia youtube https://www.youtube.com/watch?v=Gclb5YHIi0o Sobre Conjuntos
+- Guia youtube [Java SE avanzado - Conjuntos ](https://www.youtube.com/watch?v=hI9H4eR7jzw&list=PLvimn1Ins-43qPXR3gBcxwe7tydxZtsON) 
 - web: https://www.digitalocean.com/community/tutorials/java-set
 
 
