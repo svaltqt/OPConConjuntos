@@ -13,7 +13,7 @@ Implementacion de Conjuntos en Java orientado a Objetos
 
 1. Git clone:
     ```
-         git clone [https://github.com/svaltqt/OPConConjuntos.git](https://github.com/svaltqt/OPConConjuntos.git)
+         git clone https://github.com/svaltqt/OPConConjuntos.git
     ```
 2. Instalacion de JavaFX (Dentro del IDE)
     ``` 
