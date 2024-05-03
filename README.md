@@ -6,7 +6,7 @@ Implementacion de Conjuntos en Java orientado a Objetos
 
 - [Instalación](#instalación)
 - [Uso](#uso)
-- [Contribución](#contribución)
+- [Recursos](#recursos)
 - [Licencia](#licencia)
 
 ## Instalación
@@ -29,9 +29,11 @@ Abrir la consola y usar el comando
      mvn javafx:run
  ```
 
-## Contribución
+## Recursos
 
-Instrucciones para contribuir al proyecto.
+Guia youtube https://www.youtube.com/watch?v=Gclb5YHIi0o Sobre Conjuntos
+web: https://www.digitalocean.com/community/tutorials/java-set
+
 
 ## Licencia
 
